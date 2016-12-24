@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.springframework.dao.EmptyResultDataAccessException;
+
 import com.jungwon.domain.User;
 
 public class UserDao {
@@ -20,8 +22,7 @@ public class UserDao {
 	public void add(User user) throws ClassNotFoundException, SQLException {
 		Connection c = dataSource.getConnection();
 
-		PreparedStatement ps = c
-				.prepareStatement("insert into users(id, name, password) values(?,?,?)");
+		PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values(?,?,?)");
 		ps.setString(1, user.getId());
 		ps.setString(2, user.getName());
 		ps.setString(3, user.getPassword());
@@ -35,37 +36,55 @@ public class UserDao {
 	public User get(String id) throws ClassNotFoundException, SQLException {
 
 		Connection c = dataSource.getConnection();
-		
-		PreparedStatement ps = c
-				.prepareStatement("select * from users where id = ?");
+
+		PreparedStatement ps = c.prepareStatement("select * from users where id = ?");
 		ps.setString(1, id);
 
 		ResultSet rs = ps.executeQuery();
-		rs.next();
-		User user = new User();
-		user.setId(rs.getString("id"));
-		user.setName(rs.getString("name"));
-		user.setPassword(rs.getString("password"));
-
+		User user = null;
+		
+		if(rs.next()) {
+			user = new User();
+			user.setId(rs.getString("id"));
+			user.setName(rs.getString("name"));
+			user.setPassword(rs.getString("password"));
+		}
+		
 		rs.close();
 		ps.close();
 		c.close();
+		
+		if(user == null) throw new EmptyResultDataAccessException(1);
 
 		return user;
 	}
-	
-	public void delete() throws ClassNotFoundException, SQLException {
+
+	public void deleteAll() throws ClassNotFoundException, SQLException {
 
 		Connection c = dataSource.getConnection();
-		
-		PreparedStatement ps = c
-				.prepareStatement("delete from users;");
-		
+
+		PreparedStatement ps = c.prepareStatement("delete from users;");
+
 		int rs = ps.executeUpdate();
-		System.out.println(rs+"개 삭제");
+
 		ps.close();
 		c.close();
 
 	}
 
+	public int getCount() throws SQLException {
+		Connection c = dataSource.getConnection();
+		
+		PreparedStatement ps = c.prepareStatement("select count(*) from users");
+		
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		
+		rs.close();
+		ps.close();
+		c.close();
+		
+		return count;
+	}
 }
