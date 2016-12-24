@@ -18,7 +18,7 @@ import com.jungwon.dao.UserDao;
 import com.jungwon.domain.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="/datasource-context.xml")
+@ContextConfiguration(locations="/test-datasource-context.xml")
 public class UserDaoTest {
 	
 	@Autowired
@@ -31,7 +31,6 @@ public class UserDaoTest {
 
 	@Before
 	public void setUp() {
-//		ApplicationContext context = new ClassPathXmlApplicationContext("datasource-context.xml");
 		this.dao = this.context.getBean("userDao", UserDao.class);
 		
 		user1 = new User("jungwon", "seojungwon", "1234");
