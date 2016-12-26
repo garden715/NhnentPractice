@@ -3,7 +3,7 @@
 <mapper namespace="com.jungwon.mapper.MemberMapper">
 
 
-	<!-- 이거접글할 때 namespace.id로 접근 --> 
+	<!-- 이거접근 할 때 namespace.id로 접근 --> 
 	<select id="getNow" resultType="string">
 		select now()
 	</select>
