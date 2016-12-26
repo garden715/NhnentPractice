@@ -4,14 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<import resource="classpath:datasource-context.xml" />
-
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:log4jdbc:mysql://127.0.0.1:3306/guestboard?characterEncoding=UTF-8" />
+			value="jdbc:mysql://127.0.0.1:3306/guestboard?characterEncoding=UTF-8" />
 		<property name="username" value="root" />
 		<property name="password" value="123456789" />
 	</bean>
@@ -25,5 +23,9 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory"/>
 	</bean>
+	
+	<bean id="MemberDAOImpl" class="com.jungwon.dao.MemberDAOImpl">
+	</bean> 
+	
 	
 </beans>
