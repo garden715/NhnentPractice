@@ -9,31 +9,30 @@
 <body>
 	<h2>방명록 목록</h2>
 	<table style="border: 1px solid #ccc">
-		<colgroup>
-			<col width="10%" />
-			<col width="15%" />
-			<col width="20%" />
-		</colgroup>
 		<thead>
 			<tr>
-				<th scope="col">id</th>
-				<th scope="col">name</th>
-				<th scope="col">email</th>
+				<th scope="col">번호 </th>
+				<th scope="col">작성자 </th>
+				<th scope="col">이메일 </th>
+				<th scope="col">제목 </th>
+				<th scope="col">수정일 </th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${posts}" var="post">
 				<tr>
 					<td>${post.id}</td>
+					<td>${post.name}</td>
 					<td>${post.email}</td>
-					<td>${post.contents}</td>
+					<td>${post.title}</td>
+					<td>${post.updateDate}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 
 	<div style="padding-top: 25px;">
-		<a href="/nhn/write">write</a>
+		<a href="/nhn/write">글작성</a>
 	</div>
 
 </body>

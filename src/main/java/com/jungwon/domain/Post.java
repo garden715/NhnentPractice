@@ -6,10 +6,11 @@ public class Post {
 	int id;
 	String email;
 	String name;
+	String title;
 	String password;
 	String contents;
-	Date regdate;
-	Date updatedate;
+	Date regDate;
+	Date updateDate;
 
 	public Post() {
 
@@ -60,6 +61,14 @@ public class Post {
 		this.password = password;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public String getContents() {
 		return contents;
 	}
@@ -68,20 +77,22 @@ public class Post {
 		this.contents = contents;
 	}
 
-	public Date getRegdate() {
-		return regdate;
+	public Date getRegDate() {
+		return regDate;
 	}
 
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
 
-	public Date getUpdatedate() {
-		return updatedate;
+	public Date getUpdateDate() {
+		return updateDate;
 	}
 
-	public void setUpdatedate(Date updatedate) {
-		this.updatedate = updatedate;
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
 	}
+
+	
 
 }

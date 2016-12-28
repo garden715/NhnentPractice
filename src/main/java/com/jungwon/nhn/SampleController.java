@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jungwon.domain.Post;
 import com.jungwon.service.SampleService;
@@ -42,5 +43,18 @@ public class SampleController {
         sampleService.insert(post);
 
         return "redirect:list";
+    }
+    
+    @RequestMapping(value = "/view")
+    public String view(@RequestParam int postId, Model model) {
+    	Post post = sampleService.selectOne(postId);
+    	
+    	// 없는 경우 처리해야함 
+    	
+    	post.setContents(post.getContents().replaceAll("\n","<br>"));
+    	
+		model.addAttribute("post", post); 
+
+        return "view";
     }
 }
