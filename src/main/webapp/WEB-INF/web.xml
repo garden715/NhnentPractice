@@ -30,5 +30,20 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	
+	<filter>
+	    <filter-name>Encoding Filter</filter-name>
+	    <filter-class>
+	   org.springframework.web.filter.CharacterEncodingFilter
+	</filter-class>
+	  <init-param>
+	    <param-name>Encoding</param-name>
+	<!-- UTF-8 인경우 -->
+	      <param-value>UTF-8</param-value>
+	    </init-param>
+	  </filter>
+	  <filter-mapping>
+	    <filter-name>Encoding Filter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	  </filter-mapping>
 </web-app>
