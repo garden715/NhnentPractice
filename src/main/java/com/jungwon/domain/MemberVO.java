@@ -13,6 +13,13 @@ public class MemberVO {
 	public MemberVO() {
 		
 	}
+	
+	public MemberVO(String userid, String userpw, String username, String email) {
+		this.userid = userid;
+		this.userpw = userpw;
+		this.username = username;
+		this.email = email;
+	}
 
 	public String getUserid() {
 		return userid;
@@ -62,4 +69,9 @@ public class MemberVO {
 		this.updatedate = updatedate;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Name : "+this.getUsername()+" Email : "+this.getEmail()+ " ID : "+this.getUserid();
+	}
 }

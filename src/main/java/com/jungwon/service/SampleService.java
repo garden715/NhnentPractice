@@ -1,5 +1,11 @@
 package com.jungwon.service;
 
-public interface SampleService {
+import java.util.List;
 
+import com.jungwon.domain.MemberVO;
+
+public interface SampleService {
+	public List<MemberVO> getBoardList();
+
+	public void insertMember(MemberVO member);
 }
