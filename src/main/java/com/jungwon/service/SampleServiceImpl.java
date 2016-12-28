@@ -10,18 +10,20 @@ import com.jungwon.dao.MemberDAO;
 import com.jungwon.domain.MemberVO;
 
 @Service("memberService")
-public class SampleServiceImpl implements SampleService {
+public class SampleServiceImpl implements SampleService<MemberVO> {
 	@Resource
 	private MemberDAO memberDAO;
 
-	public List<MemberVO> getBoardList() {
+	@Override
+	public List<MemberVO> getList() {
 		List<MemberVO> boards = memberDAO.getList();
 
 		return boards;
 	}
 
 	@Override
-	public void insertMember(MemberVO member) {
-		memberDAO.register(member);
+	public void insert(MemberVO vo) {
+		// TODO Auto-generated method stub
+		memberDAO.register((MemberVO)vo);
 	}
 }

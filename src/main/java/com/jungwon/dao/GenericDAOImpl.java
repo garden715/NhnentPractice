@@ -11,7 +11,7 @@ public abstract class GenericDAOImpl<E, K> implements GenericDAO<E, K> {
 	@Inject
 	private SqlSession sqlSession;
 
-	private static final String namespace = "com.jungwon.mapper.MemberMapper";
+	private static final String namespace = "com.jungwon.mapper.PostMapper";
 
 	@Override
 	public K getTime() {

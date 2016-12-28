@@ -9,18 +9,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.jungwon.domain.MemberVO;
+import com.jungwon.domain.Post;
 import com.jungwon.service.SampleService;
 
 @Controller
 public class SampleController {
-    @Resource(name="memberService")
-    private SampleService sampleService;
+    @Resource(name="guestBoardPostService")
+    private SampleService<Post> sampleService;
      
     @RequestMapping("list")
     public String index(Model model) {
-        List<MemberVO> users = sampleService.getBoardList();
-        model.addAttribute("Users", users);
+        List<Post> posts = sampleService.getList();
+        model.addAttribute("posts", posts);
         
         return "boardList";
     }
@@ -31,15 +31,15 @@ public class SampleController {
     }
 
     @RequestMapping(value = "write", method = RequestMethod.POST)
-    public String doWrite(String userid,
-                          String username,
-                          String userpw,
-                          String email) {
+    public String doWrite(String email,
+                          String name,
+                          String password,
+                          String contents) {
 
     	
-        MemberVO member = new MemberVO(userid, username, userpw, email);
+        Post post = new Post(email, name, password, contents);
         
-        sampleService.insertMember(member);
+        sampleService.insert(post);
 
         return "redirect:list";
     }

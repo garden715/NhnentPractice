@@ -24,14 +24,14 @@
 				<tbody>
 					<tr>
 						<th scope="row">이름</th>
-						<td><input type="text" title="이름을 입력하세요" name="userid"
+						<td><input type="text" title="이름을 입력하세요" name="name"
 							placeholder="이름을 입력하세요." style="width: 200px;"></td>
 					</tr>
 					<tr class="end">
 						<th scope="row">내용</th>
 						<td>
 							<div style="width: 640px; height: 300px;">
-								<textarea id="content" name="username"
+								<textarea id="content" name="contents"
 									style="width: 100%; height: 100%;" placeholder="내용을 입력하세요."></textarea>
 							</div>
 						</td>
@@ -45,7 +45,7 @@
 								<input type="text" name="email"
 									placeholder="작성자" style="width: 120px;"> 
 									<span>password</span>
-								<input type="text" name="userpw" placeholder="비밀번호"
+								<input type="text" name="password" placeholder="비밀번호"
 									style="width: 120px;">
 							</div>
 						</td>

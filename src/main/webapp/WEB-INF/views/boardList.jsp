@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>first</title>
+<title>방명록 목록</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 </head>
 <body>
 	<h2>방명록 목록</h2>
@@ -23,11 +22,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${Users}" var="User">
+			<c:forEach items="${posts}" var="post">
 				<tr>
-					<td>${User.userid}</td>
-					<td>${User.username}</td>
-					<td>${User.email}</td>
+					<td>${post.id}</td>
+					<td>${post.email}</td>
+					<td>${post.contents}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

@@ -2,10 +2,8 @@ package com.jungwon.service;
 
 import java.util.List;
 
-import com.jungwon.domain.MemberVO;
+public interface SampleService<E> {
+	public List<E> getList();
 
-public interface SampleService {
-	public List<MemberVO> getBoardList();
-
-	public void insertMember(MemberVO member);
+	public void insert(E vo);
 }
