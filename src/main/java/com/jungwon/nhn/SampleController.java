@@ -25,21 +25,22 @@ public class SampleController {
         return "boardList";
     }
     
-    @RequestMapping(value = "/write", method = RequestMethod.GET)
+    @RequestMapping(value = "write", method = RequestMethod.GET)
     public String write() {
-        return "post/write";
+        return "write";
     }
 
-    @RequestMapping(value = "/write", method = RequestMethod.POST)
+    @RequestMapping(value = "write", method = RequestMethod.POST)
     public String doWrite(String userid,
                           String username,
                           String userpw,
                           String email) {
 
+    	
         MemberVO member = new MemberVO(userid, username, userpw, email);
-
+        
         sampleService.insertMember(member);
 
-        return "redirect:/post";
+        return "redirect:list";
     }
 }

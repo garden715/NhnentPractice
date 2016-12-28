@@ -32,6 +32,10 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<button>write</button>
+
+	<div style="padding-top: 25px;">
+		<a href="/nhn/write">write</a>
+	</div>
+
 </body>
 </html>
