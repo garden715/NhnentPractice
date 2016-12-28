@@ -24,7 +24,7 @@ public abstract class GenericDAOImpl<E, K> implements GenericDAO<E, K> {
 	}
 
 	@Override
-	public E get(K userid) {
+	public E get(int userid) {
 		return sqlSession.selectOne(namespace + ".get", userid);
 	}
 

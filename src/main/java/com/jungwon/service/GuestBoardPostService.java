@@ -26,4 +26,11 @@ public class GuestBoardPostService implements SampleService<Post> {
 		postDAO.register(vo);
 	}
 
+	@Override
+	public Post selectOne(int id) {
+		// TODO Auto-generated method stub
+		Post post = postDAO.get(id);
+		return post;
+	}
+
 }
