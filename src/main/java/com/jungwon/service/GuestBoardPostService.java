@@ -1,5 +1,6 @@
 package com.jungwon.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -14,11 +15,11 @@ public class GuestBoardPostService implements SampleService<Post> {
 
 	@Resource
 	private GuestBoardPostDAO postDAO;
-	
+
 	@Override
 	public List<Post> getList() {
 		List<Post> boards = postDAO.getList();
-		return boards;
+		return sort(boards);
 	}
 
 	@Override
@@ -33,4 +34,8 @@ public class GuestBoardPostService implements SampleService<Post> {
 		return post;
 	}
 
+	public List<Post> sort(List<Post> posts) {
+		Collections.sort(posts, (Post p1, Post p2) -> p2.getRegDate().compareTo(p1.getRegDate()));
+		return posts;
+	}
 }
