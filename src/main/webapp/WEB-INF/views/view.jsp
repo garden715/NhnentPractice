@@ -8,7 +8,7 @@
 <title>방명록</title>
 </head>
 <body>
-	<h3 class="subtitle">[${post.id}] ${post.title}</h3>
+	<h3 class="subtitle">[${post.id}] - ${post.title}</h3>
 	<table cellspacing="0">
 		<colgroup>
 			<col style="width: 13%">
@@ -25,6 +25,11 @@
 							pattern="yyyy-MM-dd HH:mm:ss" /> </span></td>
 			</tr>
 			<tr>
+				<th>수정일 :</th>
+				<td><span><fmt:formatDate value="${post.updateDate}"
+							pattern="yyyy-MM-dd HH:mm:ss" /> </span></td>
+			</tr>
+			<tr>
 				<th>내용 :</th>
 				<td>
 					<div style="width: 640px;">
@@ -36,13 +41,9 @@
 	</table>
 
 	<div style="padding-top: 25px;">
-		<a href="/list">수정</a>
-	</div>
-	<div style="padding-top: 25px;">
-		<a href="/list">삭제</a>
-	</div>
-	<div style="padding-top: 25px;">
-		<a href="/list">목록</a>
+		<a href="/nhn/edit?postId=${post.id}">수정</a>
+		<a href="/nhn">삭제</a>
+		<a href="/nhn">목록</a>
 	</div>
 </body>
 </html>

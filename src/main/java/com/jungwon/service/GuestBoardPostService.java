@@ -38,4 +38,18 @@ public class GuestBoardPostService implements SampleService<Post> {
 		Collections.sort(posts, (Post p1, Post p2) -> p2.getRegDate().compareTo(p1.getRegDate()));
 		return posts;
 	}
+
+	@Override
+	public void update(Post vo) {
+		// TODO Auto-generated method stub
+		postDAO.update(vo);
+
+	}
+
+	@Override
+	public boolean validatePassword(int id, String password) {
+		// TODO Auto-generated method stub
+		Post post = postDAO.get(id);
+		return post.getPassword().equals(password);
+	}
 }

@@ -9,9 +9,9 @@ import org.apache.ibatis.session.SqlSession;
 public abstract class GenericDAOImpl<E, K> implements GenericDAO<E, K> {
 	
 	@Inject
-	private SqlSession sqlSession;
+	protected SqlSession sqlSession;
 
-	private static final String namespace = "com.jungwon.mapper.PostMapper";
+	protected static final String namespace = "com.jungwon.mapper.PostMapper";
 
 	@Override
 	public K getTime() {

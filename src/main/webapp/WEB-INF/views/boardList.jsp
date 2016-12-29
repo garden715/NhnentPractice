@@ -26,6 +26,7 @@
 					<td>${post.email}</td>
 					<td>${post.title}</td>
 					<td>${post.updateDate}</td>
+					<td><a href="/nhn/view?postId=${post.id}">상세보기</a>
 				</tr>
 			</c:forEach>
 		</tbody>

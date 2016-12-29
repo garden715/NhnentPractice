@@ -8,7 +8,7 @@ public interface GenericDAO<E, K> {
 	public E get(int userid);
 	public List<E> getList();
 	
-	//public void update();
+	public void update(E vo);
 	//public void delete();
 
 }

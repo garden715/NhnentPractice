@@ -35,20 +35,21 @@ public class SampleController {
     public String doWrite(String email,
                           String name,
                           String password,
-                          String contents) {
+                          String contents,
+                          String title) {
 
     	
-        Post post = new Post(email, name, password, contents);
+        Post post = new Post(email, name, password, contents, title);
         
         sampleService.insert(post);
 
         return "redirect:/";
     }
     
-    @RequestMapping(value = "/view")
+    @RequestMapping(value = "view", method = RequestMethod.GET)
     public String view(@RequestParam int postId, Model model) {
     	Post post = sampleService.selectOne(postId);
-    	
+    	System.out.println(post);
     	// 없는 경우 처리해야함 
     	
     	post.setContents(post.getContents().replaceAll("\n","<br>"));
@@ -56,5 +57,37 @@ public class SampleController {
 		model.addAttribute("post", post); 
 
         return "view";
+    }
+    
+    @RequestMapping(value = "edit", method = RequestMethod.GET) 
+    public String edit(@RequestParam int postId, Model model) {
+    	Post post = sampleService.selectOne(postId);
+    	System.out.println(post);
+    	// 없는 경우 처리해야함 
+    	
+    	post.setContents(post.getContents().replaceAll("\n","<br>"));
+    	
+		model.addAttribute("post", post); 
+
+        return "edit";
+    }
+    
+    
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public String doEdit(int id,
+    					  String email,
+                          String name,
+                          String password,
+                          String contents,
+                          String title) {
+
+    	
+        Post post = new Post(email, name, password, contents, title);
+        
+        sampleService.validatePassword(id ,password);
+        
+        sampleService.insert(post);
+
+        return "redirect:/";
     }
 }

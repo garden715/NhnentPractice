@@ -5,14 +5,31 @@
 	<select id="getNow" resultType="string">
 		select now()
 	</select>
-	
+
 	<insert id="register">
-		insert into post(email, password, name, contents)
-		values( #{email}, #{password}, #{name}, #{contents})
+		insert into post(email, password, name, title,
+		contents)
+		values( #{email}, #{password}, #{name}, #{title},
+		#{contents})
 	</insert>
-	
+
 	<select id="getList" resultType="com.jungwon.domain.Post">
 		select *
 		from post;
 	</select>
+
+	<select id="get" parameterType="int" resultType="com.jungwon.domain.Post">
+		select *
+		from
+		post
+		where id = #{postId};
+	</select>
+	
+	<update id="update">
+	<!-- set 필드명= 필드값 또는 산술식 {, 필드명=필드값 또는 산술실 } * [where  검색조건] ;  -->
+		update post
+		set 
+		name=${name}, email=${email}, contents=${contents}, title=${title}, updateDate=now()
+		where id=${id}
+	</update>
 </mapper>

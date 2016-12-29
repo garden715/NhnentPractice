@@ -7,13 +7,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>방명록 작성</title>
+<title>방명록 수정</title>
 </head>
 <body>
 
 	<div class="main">
-		<h3 class="subtitle">글쓰기</h3>
-		<form name="writeForm" id="writeForm" action="/nhn/write"
+		<h3 class="subtitle">수정하기</h3>
+		<form name="writeForm" id="writeForm" action="/nhn/edit"
 			method="post" target="" onsubmit="">
 
 			<table cellspacing="0" class="request m_t10">
@@ -24,20 +24,20 @@
 				<tbody>
 					<tr>
 						<th scope="row">이름</th>
-						<td><input type="text" title="이름" name="name"
-							placeholder="이름" style="width: 50px;" required></td>
+						<td><input type="text" value="${post.name}" name="name"
+							style="width: 50px;" required></td>
 					</tr>
 					<tr>
-					<th scope="row">제목</th>
-						<td><input type="text" title="제목을 입력하세요" name="title"
-							placeholder="제목을 입력하세요." style="width: 200px;"></td>
+						<th scope="row">제목</th>
+						<td><input type="text" value="${post.title}" name="title"
+							style="width: 200px;"></td>
 					</tr>
 					<tr class="end">
 						<th scope="row">내용</th>
 						<td>
 							<div style="width: 640px; height: 300px;">
 								<textarea id="content" name="contents"
-									style="width: 100%; height: 100%;" placeholder="내용을 입력하세요."></textarea>
+									style="width: 100%; height: 100%;" >${post.contents}</textarea>
 							</div>
 						</td>
 					</tr>
@@ -47,20 +47,18 @@
 						<td class="tleft">
 							<div>
 								<span>email</span> <input type="email" name="email"
-									placeholder="작성자" style="width: 120px;" required> <span>password</span>
+									 style="width: 120px;" value="${post.email}" required> <span>password</span>
 								<input type="password" name="password" placeholder="비밀번호"
 									style="width: 120px;" required>
 							</div>
 						</td>
-
 					</tr>
-
 				</tbody>
 			</table>
 		</form>
 	</div>
 	<div style="padding-top: 25px;">
-		<a href="#" onclick="submit()">완료</a>
+		<a href="#" onclick="submit()">수정 완료</a>
 	</div>
 </body>
 <script type="text/javascript">

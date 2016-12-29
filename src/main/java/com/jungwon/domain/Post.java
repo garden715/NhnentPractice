@@ -1,6 +1,6 @@
 package com.jungwon.domain;
 
-import java.sql.Date;
+import java.sql.Timestamp;;
 
 public class Post {
 	int id;
@@ -9,22 +9,40 @@ public class Post {
 	String title;
 	String password;
 	String contents;
-	Date regDate;
-	Date updateDate;
+	Timestamp regDate;
+
+	public Timestamp getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(Timestamp regDate) {
+		this.regDate = regDate;
+	}
+
+	public Timestamp getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Timestamp updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	Timestamp updateDate;
 
 	public Post() {
 
 	}
 
-	public Post(String email, String name, String password, String contents) {
+	public Post(String email, String name, String password, String contents, String title) {
 		this.email = email;
 		this.name = name;
 		this.password = password;
 		this.contents = contents;
+		this.title = title;
 	}
 
-	public Post(int id, String email, String name, String password, String contents) {
-		this(email, name, password, contents);
+	public Post(int id, String email, String name, String password, String contents, String title) {
+		this(email, name, password, contents, title);
 		this.id = id;
 
 	}
@@ -76,23 +94,5 @@ public class Post {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-
-	public Date getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
-
-	public Date getUpdateDate() {
-		return updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	
 
 }
