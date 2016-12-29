@@ -18,7 +18,7 @@ public class SampleController {
     @Resource(name="guestBoardPostService")
     private SampleService<Post> sampleService;
      
-    @RequestMapping("list")
+    @RequestMapping("/")
     public String index(Model model) {
         List<Post> posts = sampleService.getList();
         model.addAttribute("posts", posts);
@@ -42,7 +42,7 @@ public class SampleController {
         
         sampleService.insert(post);
 
-        return "redirect:list";
+        return "redirect:/";
     }
     
     @RequestMapping(value = "/view")
