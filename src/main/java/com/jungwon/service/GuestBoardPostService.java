@@ -52,4 +52,10 @@ public class GuestBoardPostService implements SampleService<Post> {
 		Post post = postDAO.get(id);
 		return post.getPassword().equals(password);
 	}
+
+	@Override
+	public void deleteOne(Post vo) {
+		// TODO Auto-generated method stub
+		postDAO.delete(vo);
+	}
 }

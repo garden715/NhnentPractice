@@ -40,10 +40,26 @@
 		</tbody>
 	</table>
 
+	<form action="/nhn/delete" id="deletePost" method="post">
+		<input name="postId" type="hidden" /> <input name="password"
+			type="hidden" />
+	</form>
+	<script type="text/javascript">
+		function deletePost(postId) {
+			alert("패스워드를 입력하셔야 합니다.");
+			var password = prompt("PASSWD 입력", "");
+			var form = document.getElementById("deletePost");
+			if (password != null) {
+				form.postId.value = postId;
+				form.password.value = password;
+				form.submit();
+			}
+		}
+	</script>
 	<div style="padding-top: 25px;">
-		<a href="/nhn/edit?postId=${post.id}">수정</a>
-		<a href="/nhn">삭제</a>
-		<a href="/nhn">목록</a>
+		<input type="button" value="삭제" onClick="deletePost(${post.id})"/>
+		<a href="/nhn/edit?postId=${post.id}"><button type="button">수정</button></a> 
+		<a href="/nhn"><button type="button">목록</button></a>
 	</div>
 </body>
 </html>

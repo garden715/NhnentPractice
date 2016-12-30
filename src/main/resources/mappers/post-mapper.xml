@@ -24,12 +24,18 @@
 		post
 		where id = #{postId};
 	</select>
-	
+
 	<update id="update">
-	<!-- set 필드명= 필드값 또는 산술식 {, 필드명=필드값 또는 산술실 } * [where  검색조건] ;  -->
+		<!-- set 필드명= 필드값 또는 산술식 {, 필드명=필드값 또는 산술실 } * [where 검색조건] ; -->
 		update post
-		set 
-		name=${name}, email=${email}, contents=${contents}, title=${title}, updateDate=now()
-		where id=${id}
+		set
+		name=#{name}, email=#{email}, contents=#{contents},
+		title=#{title},
+		updateDate=now()
+		where id=#{id};
 	</update>
+
+	<delete id="delete">
+		delete from post where id=#{id};
+	</delete>
 </mapper>

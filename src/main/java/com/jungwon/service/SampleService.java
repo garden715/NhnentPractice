@@ -10,4 +10,6 @@ public interface SampleService<E> {
 	public E selectOne(int id);
 	public void update(E vo);
 	public boolean validatePassword(int id, String password);
+
+	public void deleteOne(E vo);
 }

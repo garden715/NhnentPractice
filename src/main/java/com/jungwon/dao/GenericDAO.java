@@ -9,6 +9,6 @@ public interface GenericDAO<E, K> {
 	public List<E> getList();
 	
 	public void update(E vo);
-	//public void delete();
+	public void delete(E vo);
 
 }

@@ -13,9 +13,9 @@
 
 	<div class="main">
 		<h3 class="subtitle">수정하기</h3>
-		<form name="writeForm" id="writeForm" action="/nhn/edit"
-			method="post" target="" onsubmit="">
-
+		<form name="writeForm" id="writeForm" action="/nhn/edit" method="post"
+			target="" onsubmit="">
+			<input type="hidden" name="id" value="${post.id}">
 			<table cellspacing="0" class="request m_t10">
 				<colgroup>
 					<col style="width: 13%">
@@ -37,7 +37,7 @@
 						<td>
 							<div style="width: 640px; height: 300px;">
 								<textarea id="content" name="contents"
-									style="width: 100%; height: 100%;" >${post.contents}</textarea>
+									style="width: 100%; height: 100%;">${post.contents}</textarea>
 							</div>
 						</td>
 					</tr>
@@ -47,7 +47,7 @@
 						<td class="tleft">
 							<div>
 								<span>email</span> <input type="email" name="email"
-									 style="width: 120px;" value="${post.email}" required> <span>password</span>
+									style="width: 120px;" value="${post.email}" required> <span>password</span>
 								<input type="password" name="password" placeholder="비밀번호"
 									style="width: 120px;" required>
 							</div>
@@ -58,7 +58,7 @@
 		</form>
 	</div>
 	<div style="padding-top: 25px;">
-		<a href="#" onclick="submit()">수정 완료</a>
+		<a href="#" onclick="submit()"><button type="button">수정 완료</button></a>
 	</div>
 </body>
 <script type="text/javascript">
