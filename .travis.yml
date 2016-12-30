@@ -1,2 +1,20 @@
 language: java
-	mvn test
+
+sudo: false
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+      
+jdk:
+  - oraclejdk8
+  
+service:
+  - mysql
+
+script:
+        - cd $TRAVIS_BUILD_DIR/guestbook
+        - mvn test
+
+notifications:
+  email: false
